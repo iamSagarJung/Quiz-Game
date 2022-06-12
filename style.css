@@ -63,7 +63,7 @@ button:active{
     top:10.63%;
     left:0;
     background:blue;
-    width:100%;
+    /* width:100%; */
     height:2.5px;
 }
 .rules span{
@@ -160,7 +160,7 @@ button:active{
     font-size: 1.2rem;
     border-radius: 5px;
 }
-qn{
+.qn{
     padding:5px 8px;
 }
 .disabled{
@@ -229,3 +229,14 @@ h5{
     left:50%;
     transform: translate(-50%,-50%);
 }
+.s{
+    pointer-events: none;
+}
+
+ @media screen and (max-width: 549px){
+    .rules{
+        width:330px;
+        height: 400px;
+    }
+    
+ }

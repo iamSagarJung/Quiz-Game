@@ -120,7 +120,7 @@ function showQuestion(index){
                         +`<p>${questions[index].options[2]}</P>`
                         +`<p>${questions[index].options[3]}</P>`
 
-        const icon=document.querySelector("icon")
+        // const icon=document.querySelector("icon")
     const num=document.querySelector("qn num")
     num.innerHTML=questions[index].num
    
@@ -129,6 +129,8 @@ function showQuestion(index){
         optBtn.addEventListener("click",(e)=>{
             userAns=e.target.textContent
             if(userAns==questions[index].answer){
+            e.target.style.pointerEvents="none"
+                options.classList.add("s")
                 userScore+=1
                 console.log(userScore)
                 console.log("answer is correct")
@@ -140,6 +142,7 @@ function showQuestion(index){
                 
             }else {
                 console.log("answer is incorrect")
+                options.classList.add("s")
                 e.target.style.backgroundColor="rgba(236, 105, 105, 0.545)"
                 nextque.style.display="block"
                 clearInterval(counterLine)
@@ -149,11 +152,12 @@ function showQuestion(index){
         })
     }
     for(let i=0;i<4;i++){
-        
     }
-
-
 }
+const options=document.querySelector(".options")
+nextque.addEventListener("click",()=>{
+    options.classList.remove("s")
+})
 
 function optionSelected(answer){
     console.log(userAns)
@@ -172,6 +176,9 @@ function startTimer(time){
         if(time<0){
             clearInterval(counter)
             timecount.textContent="00"
+            options.classList.add("s")
+            nextque.style.display="block"
+
         }
       
     },1000)
